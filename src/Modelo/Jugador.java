@@ -25,7 +25,7 @@ public class Jugador {
         y = Math.max(0, Math.min(y, altoMax));
     }
 
-    public void crecer(int incremento) {
+    public void crecer(double incremento) {
         tamano += incremento;
     }
 
@@ -52,6 +52,5 @@ public class Jugador {
     }
 
     public void actualizar() {
-        // TODO: implementar lógica de actualización si es necesario
     }
 }

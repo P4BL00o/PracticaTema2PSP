@@ -25,13 +25,30 @@ public class MundoJuego {
     }
 
     public synchronized void inicializarEnemigos(int n) {
+       
+        double[] tamanos = {4.5, 4.5, 5.5, 6.5, 9.5};
+        
+        double[] velocidades = {4.0, 3.5, 3.0, 2.5, 2.0};
+
         for (int i = 0; i < n; i++) {
-            int y = 100 + i * 80;                  // posición vertical distinta
-            int direccion = (i % 2 == 0) ? +1 : -1; // alterna dirección
-            int x = (direccion == +1) ? 0 : ancho;  // inicio según dirección
-            int tamano = 5 + i;                     // tamaño creciente
-            double[] velocidades = {2.0, 2.0, 2.0, 2.0, 2.0};
-            enemigos.add(new Pez(x, y, tamano, direccion, velocidades[i]));
+            int y = (int)(Math.random() * alto);   
+
+            int direccion;
+            if (i % 2 == 0) {
+                direccion = +1; 
+            } else {
+                direccion = -1; 
+            }
+
+            int x;
+            if (direccion == +1) {
+                x = 0;
+            } else {
+                x = ancho;
+            }
+
+  
+            enemigos.add(new Pez(x, y, tamanos[i], direccion, velocidades[i]) );
         }
     }
 
@@ -59,12 +76,12 @@ public class MundoJuego {
                     itEnemigo.remove();
                     if (enemigos.isEmpty()) {
                         enEjecucion = false;
-                        victoria = true; // marca estado de victoria
+                        victoria = true;
                     }
                     break;
                 } else {
                     enEjecucion = false;
-                    victoria = false; // marca estado de derrota
+                    victoria = false; 
                     break;
                 }
             }

@@ -30,7 +30,7 @@ public class Ventana extends JPanel implements KeyListener {
                 mundo.actualizar();
                 repaint();
                 if (!mundo.estaEnEjecucion()) {
-                    ((Timer)e.getSource()).stop(); // solo detiene animación
+                    ((Timer)e.getSource()).stop(); 
                 }
             }
         });

@@ -56,12 +56,12 @@ public class Controlador {
         mundo.actualizarEnemigo(enemigo);
         ventana.repaint();
 
-        // 🔊 Si el jugador ha crecido, significa que comió algo
+        
         if (mundo.getJugador().getTamano() > tamanoAntes) {
             audio.reproducirComer();
         }
 
-        // 🔹 Detectar fin de juego desde el controlador
+        
         if (!mundo.estaEnEjecucion()) {
             if (mundo.hayVictoria()) {
                 finalizarJuegoVictoria();

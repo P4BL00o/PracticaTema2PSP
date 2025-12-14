@@ -16,11 +16,11 @@ public class HiloEnemigo extends Thread {
     public void run() {
         while (enEjecucion) {
             pez.actualizar(controlador.getMundo().getAncho());
-            controlador.ActualizarEnemigo(pez); // ✅ ahora avisa al controlador
+            controlador.ActualizarEnemigo(pez); 
             try {
-                Thread.sleep(16); // ~60 FPS
+                Thread.sleep(16); 
             } catch (InterruptedException e) {
-                // Se ignora la excepción para continuar el bucle
+                
             }
         }
     }

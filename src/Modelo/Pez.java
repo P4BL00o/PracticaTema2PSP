@@ -4,20 +4,20 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Pez {
-    private double x, y;       // 🔹 ahora son double
-    private int tamano;
-    private int direccion;     // +1 derecha, -1 izquierda
+    private double x, y;       
+    private double tamano;
+    private int direccion;     
     private double velocidad;
     private Image imagen;
 
-    public Pez(int x, int y, int tamano, int direccion, double velocidad) {
+    public Pez(int x, int y, double tamano, int direccion, double velocidad) {
         this.x = x;
         this.y = y;
         this.tamano = tamano;
         this.direccion = direccion;
         this.velocidad = velocidad;
 
-        // Cargar imagen del pez enemigo
+        
         imagen = new ImageIcon(getClass().getResource("/pez.png")).getImage();
     }
 
@@ -34,25 +34,25 @@ public class Pez {
         }
     }
 
-    public int getTamano() {
+    public double getTamano() {
         return tamano;
     }
 
     public Rectangle limites() {
         int r = tamanoAPixeles();
-        return new Rectangle((int)x - r / 2, (int)y - r / 2, r, r); // 🔹 conversión a int
+        return new Rectangle((int)x - r / 2, (int)y - r / 2, r, r); 
     }
 
     private int tamanoAPixeles() {
-        return Math.max(14, tamano * 3);
+        return (int) Math.max(14.0, tamano * 3);
     }
 
     public void dibujar(Graphics g) {
         int r = tamanoAPixeles();
-        g.drawImage(imagen, (int)x - r / 2, (int)y - r / 2, r, r, null); // 🔹 conversión a int
+        g.drawImage(imagen, (int)x - r / 2, (int)y - r / 2, r, r, null);
     }
 
     public void mover() {
-        actualizar(800);  // 🔹 ancho del mundo, puedes pasarlo dinámico si quieres
+        actualizar(800);  
     }
 }
